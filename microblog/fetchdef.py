@@ -1,11 +1,11 @@
 from pysnmp.hlapi import *
-def snmpFetch():
+def snmpFetch(snmpIn):
     errorIndication, errorStatus, errorIndex, varBinds = next(
         getCmd(SnmpEngine(),
             CommunityData('public', mpModel=0),
             UdpTransportTarget(('192.168.1.173', 161)),
             ContextData(),
-            ObjectType(ObjectIdentity('SNMPv2-MIB', 'sysDescr', 0)))
+            ObjectType(ObjectIdentity('SNMPv2-MIB', snmpIn, 0)))
     )
 
     if errorIndication:

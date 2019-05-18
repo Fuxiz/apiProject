@@ -3,6 +3,15 @@ from fetchdef import *
 
 @app.route('/')
 @app.route('/index')
+
 def index():
-    result = snmpFetch()
+    #listsnmp = ["sysUpTime","sysName", "sysObjectID"]
+    #for i in range(3):
+    result = snmpFetch("sysName")
     return result
+
+@app.route('/api_fetch')
+def api_fetch():
+    result = snmpFetch("sysUpTime")
+    return result
+
