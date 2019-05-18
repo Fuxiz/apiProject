@@ -8,6 +8,7 @@ def index():
     #listsnmp = ["sysUpTime","sysName", "sysObjectID"]
     #for i in range(3):
     result = snmpFetch("sysName")
+    api_fetch()
     return result
 
 @app.route('/api_fetch')
