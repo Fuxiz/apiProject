@@ -1,6 +1,8 @@
 from app import app
+from fetchdef import *
 
 @app.route('/')
 @app.route('/index')
 def index():
-    return "Hello, World!"
+    result = snmpFetch()
+    return result
